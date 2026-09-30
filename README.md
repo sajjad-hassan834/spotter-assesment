@@ -23,3 +23,28 @@ The scorer validates both files and creates `scorer_results/candidate_december.p
 - `validation_predictions.csv`
 - PDF or DOCX report containing your validation, data split approach and `candidate_december.png`
 - 2-3 minute Loom link
+
+## Solution Run Instructions
+
+To reproduce the model predictions and generate the report, follow these steps:
+
+1. **Install dependencies:**
+```bash
+python -m pip install -r requirements.txt
+```
+
+2. **Run the Model Pipeline:**
+This script loads data, engineers features, trains the LightGBM model, and predicts on the validation and December datasets.
+```bash
+python model_pipeline.py
+```
+
+3. **Validate and Generate the December Chart:**
+```bash
+python score.py --predictions validation_predictions.csv --december-predictions data/december_chart_inputs.csv
+```
+
+4. **Generate the PDF Report:**
+```bash
+python generate_report.py
+```
